@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+
+# A bash script to make passwordless ssh simple.
+# By James Payne
+
+# -----------------------WARNING--------------------------
+#
+# Using paswordless SSH login is a potential security risk
+# and is only provided for convenience.
+# If an unknown attacker has physical access to you're
+# system they may be able to gain access to resources
+# that you don't want them to. So be careful and use this
+# script at you're own risk. I take no responisbilty for
+# any damage caused by using this script.
+#
+# ----------------------END WARNING------------------------
+
+# Print the warning
+
+echo ""
+echo "-----------------------WARNING--------------------------"
+echo ""
+echo "Using paswordless SSH login is a potential security risk"
+echo "and is only provided for convenience."
+echo "If an unknown attacker has physical access to you're"
+echo "system they may be able to gain access to resources"
+echo "that you don't want them to. So be careful and use this"
+echo "script at you're own risk. I take no responisbilty for"
+echo "any damage caused by using this script."
+echo ""
+echo "----------------------END WARNING------------------------"
+echo ""
+
+read -p "Are you sure you want to continue and you know what you're doing? yes/no: " -n 1 -r
+echo    # (optional) move to a new line
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+
+# Make sure the user is in their home directory
+
+cd ~/
+
+#Prompt for a username and host
+
+printf "Please enter username : "
+read USERNAME
+
+printf "Please enter hostname : "
+read HOSTNAME
+
+ssh-keygen
+
+echo "Read the prompts and make sure you know what you are doing."
+
+cat ~/.ssh/id_rsa.pub | ssh $USERNAME@$HOSTNAME "mkdir -p ~/.ssh/; cat >> ~/.ssh/authorized_keys; chmod 700 ~/.ssh/; chmod 600 ~/.ssh/authorized_keys"
+
+fi
