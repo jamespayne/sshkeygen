@@ -7,6 +7,6 @@ Look at the script before you use it. Although I have checked it works and I'm f
 
 Be sure to make it executable before you use it for example:
 
-  chmod +x sshkeygen
+```chmod +x sshkeygen```
 
 Feel free to contribute and / or make suggestions.
