@@ -40,13 +40,15 @@ then
 
 cd ~/
 
-#Prompt for a username and host
+# Prompt for a username and host
 
 printf "Please enter username : "
 read USERNAME
 
 printf "Please enter hostname : "
 read HOSTNAME
+
+# Do the key generation 
 
 ssh-keygen
 
