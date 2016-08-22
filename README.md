@@ -1,7 +1,7 @@
 sshkeygen
 =========
 
-A bash ssh keygen script to make generating ssh keys easy.
+A bash script to automate generating ssh keys.
 
 Note: This script assumes you haven't already generated a ssh key. I'm going to update the script so that it checks for the prescence of existing keys and asks whether you want to use an existing key.
 
